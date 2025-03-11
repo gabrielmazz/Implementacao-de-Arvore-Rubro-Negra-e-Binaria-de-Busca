@@ -1,0 +1,4 @@
+Quantidade de comparações: 2080258
+Tempo total de consulta: 0.177665
+Hits (acertos): 125000
+Misses (erros): 0

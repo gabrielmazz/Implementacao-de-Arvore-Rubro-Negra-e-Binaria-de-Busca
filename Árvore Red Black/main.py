@@ -36,10 +36,12 @@ except ImportError:
 parser = argparse.ArgumentParser(description="Construa uma árvore rubro-negra a partir de um arquivo de entrada.")
 parser.add_argument('--print-terminal', action='store_true', help="Imprime a árvore no terminal.")
 parser.add_argument('--print-graphical', action='store_true', help="Visualiza a árvore graficamente.")
+parser.add_argument('--write-result-archive', action='store_true', help="Escreve os resultados em um arquivo.")
 args = parser.parse_args()
 
 PRINT_TREE_TERMINAL = args.print_terminal
 PRINT_TREE_GRAPHICAL = args.print_graphical
+WRITE_RESULT_ARCHIVE = args.write_result_archive
 
 if __name__ == '__main__':
     
@@ -141,3 +143,20 @@ if __name__ == '__main__':
             
             if PRINT_TREE_GRAPHICAL:
                 rb_tree.visualize_tree()
+                
+            if WRITE_RESULT_ARCHIVE:
+                
+                # Verifica se o arquivo de saída já existe, se sim, remove
+                if os.path.exists(f"../Saídas Árvores/Construir/{options[option-1]}_Arvore_Rubro-Negra.txt"):
+                    os.remove(f"../Saídas Árvores/Construir/{options[option-1]}_Arvore_Rubro-Negra.txt")
+                
+                with open(f"../Saídas Árvores/Construir/{options[option-1]}_Arvore_Rubro-Negra.txt", 'w') as file:
+                    file.write(f"Quantidade de comparações: {rb_tree.comparison_count}\n")
+                    file.write(f"Tempo total de construção: {total_time:.6f}\n")
+                
+                with open(f"../Saídas Árvores/Consultar/{options[option-1]}_Arvore_Rubro-Negra.txt", 'w') as file:
+                    file.write(f"Quantidade de comparações: {query_comparison_count}\n")
+                    file.write(f"Tempo total de consulta: {total_query_time:.6f}\n")
+                    file.write(f"Hits (acertos): {rb_tree.hits}\n")
+                    file.write(f"Misses (erros): {rb_tree.misses}\n")
+            
