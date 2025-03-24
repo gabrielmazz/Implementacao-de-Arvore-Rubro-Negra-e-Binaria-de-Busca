@@ -7,7 +7,7 @@ import argparse
 # Adiciona o caminho do diretório pai ao sys.path para permitir a importação
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Utils')))
 
-from Utils.utils import clear_terminal
+#from Utils.utils import clear_terminal
 
 # Verifica se o usuário possui os pacotes necessários para executar o programa
 try:
@@ -159,7 +159,7 @@ if __name__ == '__main__':
         option = console.input("Opção: ")
         option = int(option)
         
-        clear_terminal()
+        #clear_terminal()
 
         # Verifica se a opção escolhida é válida
         if option < 1 or option > len(options):

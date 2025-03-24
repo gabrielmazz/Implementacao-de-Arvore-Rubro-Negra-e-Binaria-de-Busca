@@ -1,2 +1,2 @@
 Quantidade de comparações: 55748
-Tempo total de construção (s): 0.006066
+Tempo total de construção (s): 0.006069
